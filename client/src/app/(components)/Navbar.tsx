@@ -1,9 +1,12 @@
 "use client";
 
-import { Bell, Menu, Settings, Sun } from "lucide-react";
+import { Bell, Menu, Moon, MoonIcon, Settings, Sun } from "lucide-react";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { setIsSidebarCollapsed } from "../redux/features/globalSlice";
+import {
+  setIsSidebarCollapsed,
+  setIsDarkMode,
+} from "../redux/features/globalSlice";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -13,6 +16,12 @@ const Navbar = () => {
 
   const toggleSidebar = () => {
     dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
+  };
+
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+
+  const toggleDarkMode = () => {
+    dispatch(setIsDarkMode(!isDarkMode));
   };
 
   return (
@@ -29,7 +38,7 @@ const Navbar = () => {
           <input
             type="search"
             placeholder="Start typing to search groups and products"
-            className="pl-10 pr-4 py-2 w-50 md:w-80 focus:outline-none border-2 border-gray-300 bg-white rounded-lg focus:border-blue-500 overflow-hidden text-ellipsis"
+            className="pl-10 pr-4 py-2 w-50 md:w-60 focus:outline-none border-2 border-gray-300 bg-white rounded-lg focus:border-blue-500 overflow-hidden text-ellipsis"
           />
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Bell className="text-gray-500" size={20} />
@@ -39,10 +48,14 @@ const Navbar = () => {
 
       {/* RIGHT SIDE */}
       <div className="flex justify-between items-center gap-5">
-        <div className="hidden md:flex justify-between items-center gap-5">
+        <div className="hidden md:flex pl-2 justify-between items-center gap-5">
           <div>
-            <button onClick={() => {}}>
-              <Sun className="cursor-pointer text-gray-500" size={24} />
+            <button onClick={toggleDarkMode}>
+              {isDarkMode ? (
+                <MoonIcon className="cursor-pointer text-gray-500" size={24} />
+              ) : (
+                <Sun className="cursor-pointer text-gray-500" size={24} />
+              )}
             </button>
           </div>
           <div className="relative">
