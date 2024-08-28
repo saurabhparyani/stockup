@@ -106,6 +106,20 @@ const CardSalesSummary = () => {
                 />
                 <Tooltip
                   formatter={(value) => [`$${value.toLocaleString("en")}`]}
+                  labelFormatter={(label) => {
+                    const date = new Date(label);
+                    return date.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    });
+                  }}
+                  contentStyle={{
+                    backgroundColor: "#1a202c",
+                    border: "none",
+                    borderRadius: "8px",
+                    color: "#ffffff",
+                  }}
                 />
                 <Bar
                   dataKey="totalValue"

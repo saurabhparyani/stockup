@@ -31,14 +31,14 @@ export interface ExpenseSummary {
 export interface ExpenseByCategorySummary {
     expenseByCategorySummaryId: string,
     category: string,
-    amount: number,
+    amount: string,
     date: string
 }
 
 export interface DashboardMetrics {
     popularProducts: Product[],
     salesSummary: SalesSummary[],
-    purchaseSummar: PurchaseSummary[],
+    purchaseSummary: PurchaseSummary[],
     expenseSummary: ExpenseSummary[],
     expenseByCategorySummary: ExpenseByCategorySummary[]
 }
