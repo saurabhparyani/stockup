@@ -11,6 +11,7 @@ export const getProducts = async (req: Request, res: Response): Promise<void> =>
             where: {
                 name: {
                     contains: search,
+                    mode: 'insensitive'
                 }
             }
         })

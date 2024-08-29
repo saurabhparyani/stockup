@@ -1,12 +1,14 @@
 "use client";
 
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import Navbar from "@/app/(components)/Navbar";
 import Sidebar from "@/app/(components)/Sidebar";
 import StoreProvider from "./redux/StoreProvider";
 import { useAppSelector } from "./redux/hooks";
+import Spinner from "./(components)/Spinner";
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );
@@ -18,7 +20,8 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
     } else {
       document.documentElement.classList.add("light");
     }
-  });
+    setIsLoading(false);
+  }, [isDarkMode]);
 
   return (
     <div
@@ -33,7 +36,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
         }`}
       >
         <Navbar />
-        {children}
+        {isLoading ? <Spinner /> : children}
       </main>
     </div>
   );
