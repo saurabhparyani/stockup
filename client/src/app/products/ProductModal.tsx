@@ -54,7 +54,7 @@ const ProductModal = ({
             <input
               {...register("name")}
               type="text"
-              className={`mt-1 block w-full px-3 py-2 border ${
+              className={`mt-1 block w-full px-3 py-2 bg-white border ${
                 errors.name ? "border-red-500" : "border-gray-300"
               } rounded-md shadow-sm`}
             />
@@ -71,7 +71,7 @@ const ProductModal = ({
               {...register("price", { valueAsNumber: true })}
               type="number"
               step="0.01"
-              className={`mt-1 block w-full px-3 py-2 border ${
+              className={`mt-1 block w-full px-3 py-2 bg-white border ${
                 errors.price ? "border-red-500" : "border-gray-300"
               } rounded-md shadow-sm`}
             />
@@ -89,7 +89,7 @@ const ProductModal = ({
             <input
               {...register("stockQuantity", { valueAsNumber: true })}
               type="number"
-              className={`mt-1 block w-full px-3 py-2 border ${
+              className={`mt-1 block w-full px-3 py-2 bg-white border ${
                 errors.stockQuantity ? "border-red-500" : "border-gray-300"
               } rounded-md shadow-sm`}
             />
@@ -108,7 +108,7 @@ const ProductModal = ({
               {...register("rating", { valueAsNumber: true })}
               type="number"
               step="0.1"
-              className={`mt-1 block w-full px-3 py-2 border ${
+              className={`mt-1 block w-full px-3 py-2 border bg-white  ${
                 errors.rating ? "border-red-500" : "border-gray-300"
               } rounded-md shadow-sm`}
             />
