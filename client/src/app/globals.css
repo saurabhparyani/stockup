@@ -31,3 +31,11 @@ body,
     grid-template-rows: repeat(8, 7.5vh);
   }
 }
+
+.dark .MuiDataGrid-footerContainer {
+  border-top-color: #4a5568 !important;
+}
+
+.MuiTablePagination-root {
+  color: #818181 !important;
+}
