@@ -6,6 +6,7 @@ import { useGetProductsQuery } from "../redux/api";
 import { Product } from "../redux/api";
 import Ratings from "../(components)/Ratings";
 import ProductModal from "./ProductModal";
+import Image from "next/image";
 
 const ProductPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -71,7 +72,15 @@ const ProductPage = () => {
               className="border border-gray-300 rounded-lg shadow-md p-4"
             >
               <div className="flex flex-col items-center">
-                <div>img</div>
+                <Image
+                  src={`https://s3-stockup.s3.ap-south-1.amazonaws.com/product${
+                    Math.floor(Math.random() * 3) + 1
+                  }.png`}
+                  alt={product.name}
+                  width={150}
+                  height={150}
+                  className="mb-3 rounded-2xl w-36 h-36"
+                />
                 <h3 className="text-lg font-semibold">{product.name}</h3>
                 <p className="text-gray-800">${product.price.toFixed(2)}</p>
                 <p className="text-sm text-gray-600 mt-1">
